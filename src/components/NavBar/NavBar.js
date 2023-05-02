@@ -1,37 +1,41 @@
 import CartWidget from "../CartWidget/CartWidget"
+import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <nav>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container">
-                    <div class="col">
-                        <a class="navbar-brand" href="#">Pedidos GO!</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+        
+            <nav className="navbar navbar-expand-lg bg-body-tertiary shadow mb-5">
+                <div className="container">
+                    <div className="col">
+                        <Link to='/'>
+                            <img src="http://localhost:3000/Images/logo-pediGO.svg" alt="PediGo" height={50}/>
+                        </Link>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                    <div class="col collapse navbar-collapse" id="navbarContent">
-                        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Entradas</a>
+                    <div className="col collapse navbar-collapse d-flex justify-content-center" id="navbarContent">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                            <NavLink to={`/category/marino`} className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Marino</NavLink>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Platos de fondo</a>
+                            <li className="nav-item">
+                            <NavLink to={`/category/criollo`} className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Criollo</NavLink> 
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Bebidas frías</a>
+                            <li className="nav-item">
+                            <NavLink to={`/category/oriental`} className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Oriental</NavLink>
                             </li>
                         </ul>
+                        
                     </div>
-                    <div class="col">
+                    <div className="col d-flex justify-content-end">
                         <CartWidget />
                     </div>
 
                 </div>
             </nav>
             
-        </nav>
+        
 
 
     )
